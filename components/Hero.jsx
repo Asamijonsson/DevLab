@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div>
+    <>
       <Image
         src={"/hero.jpg"}
         alt="hero"
@@ -15,6 +15,6 @@ export default function Hero() {
       <h1 className="flex justify-center pt-4">
         Hi, welcome to my website! This website is my hobby project lab (●'◡'●)
       </h1>
-    </div>
+    </>
   );
 }
