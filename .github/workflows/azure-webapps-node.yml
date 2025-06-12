@@ -75,4 +75,3 @@ jobs:
         with:
           app-name: "asamijonsson"
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: release.zip
