@@ -20,7 +20,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
-        <footer className="text-center text-sm text-gray-500 py-4">
+        <footer className="text-center text-sm text-white py-4">
           Asami Kanomata Jönsson ©2025
         </footer>
       </body>
