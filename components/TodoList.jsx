@@ -24,7 +24,6 @@ export default function TodoList() {
       console.log(error);
     }
   };
-  console.log(todos);
 
   const generateTodo = async () => {
     if (!newTodo.trim()) return;
