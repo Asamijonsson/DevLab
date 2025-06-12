@@ -17,8 +17,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Header />
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <footer className="text-center text-sm text-gray-500 py-4">
+          Asami Kanomata Jönsson ©2025
+        </footer>
+      </body>
     </html>
   );
 }
