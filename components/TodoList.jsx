@@ -48,14 +48,14 @@ export default function TodoList() {
 
   return (
     <main className="p-4 max-w-xl mx-auto">
-      <div className="flex gap-2">
+      <div className="flex gap-2 items-center justify-center pb-2 ">
         <Image src={"/todoList.png"} alt="todo" width={50} height={30} />
-        <h1 className="group text-2xl font-bold ">To-Do List</h1>
+        <h1 className="group text-2xl">To-Do List</h1>
       </div>
       <div className="flex mb-4 gap-2">
         <input
-          className="rounded-full border flex-1"
-          placeholder="New task..."
+          className="rounded-full border px-3 flex-1"
+          placeholder="New task"
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
         />

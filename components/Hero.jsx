@@ -2,15 +2,19 @@
 
 import Image from "next/image";
 
-const Hero = () => {
+export default function Hero() {
   return (
     <div>
-      <Image src={"/hero.jpg"} alt="hero" width={1050} height={350} />
-      <p className="flex justify-center ">
+      <Image
+        src={"/hero.jpg"}
+        alt="hero"
+        width={1050}
+        height={350}
+        className="outline-2 outline-white"
+      />
+      <h1 className="flex justify-center pt-4">
         Hi, welcome to my website! This website is my hobby project lab (●'◡'●)
-      </p>
+      </h1>
     </div>
   );
-};
-
-export default Hero;
+}
