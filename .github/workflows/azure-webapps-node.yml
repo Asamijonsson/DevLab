@@ -47,9 +47,6 @@ jobs:
           npm install
           npm run build --if-present
 
-      - name: Verify export output
-        run: ls -la ./out
-
       - name: Zip static export folder
         uses: TheDoctor0/zip-release@0.6.1
         with:
