@@ -35,6 +35,8 @@ export default function Header({ children }: HeaderProps) {
 
   return (
     <div className="flex justify-center items-center pt-4 text-white gap-4">
+      <Image src="/logo.png" alt="logo" width={50} height={75} />
+      <Navbar />
       {user ? (
         <>
           <span>Hello, {user.displayName || user.email}!</span>
@@ -43,8 +45,6 @@ export default function Header({ children }: HeaderProps) {
       ) : (
         <button onClick={signInWithGoogle}>Sign In with Google</button>
       )}
-      <Image src="/logo.png" alt="logo" width={50} height={75} />
-      <Navbar />
       {children}
     </div>
   );
