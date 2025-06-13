@@ -5,11 +5,16 @@ import { getItems, addTodo, database } from "../lib/appwrite";
 import { CgRemoveR } from "react-icons/cg";
 import Image from "next/image";
 
-const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
-const COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID;
+const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!;
+const COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID!;
+
+type Todo = {
+  id: string;
+  name: string;
+};
 
 export default function TodoList() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState<Todo[]>([]);
   const [newTodo, setNewTodo] = useState("");
 
   useEffect(() => {
@@ -19,9 +24,10 @@ export default function TodoList() {
   const fetchTodos = async () => {
     try {
       const data = await getItems();
-      setTodos(data || []);
+      setTodos(data ?? []);
     } catch (error) {
       console.log(error);
+      setTodos([]);
     }
   };
 
@@ -36,7 +42,7 @@ export default function TodoList() {
     }
   };
 
-  const deleteTodo = async (id) => {
+  const deleteTodo = async (id: string) => {
     try {
       await database.deleteDocument(DATABASE_ID, COLLECTION_ID, id);
       fetchTodos();
