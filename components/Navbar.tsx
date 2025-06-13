@@ -11,11 +11,6 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link href="/about" className="hover:underline">
-            About
-          </Link>
-        </li>
-        <li>
           <Link href="/cooking" className="hover:underline">
             Cooking
           </Link>

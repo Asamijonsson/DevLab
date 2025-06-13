@@ -10,6 +10,7 @@
     "export": "next export"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "appwrite": "^18.1.1",
     "firebase": "^11.9.1",
     "gsap": "^3.13.0",

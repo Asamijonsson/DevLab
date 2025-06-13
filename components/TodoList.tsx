@@ -56,7 +56,7 @@ export default function TodoList() {
   };
 
   return (
-    <main className="p-4 max-w-xl mx-auto">
+    <div className="p-4 max-w-xl mx-auto">
       <div className="flex gap-2 items-center justify-center pb-2 ">
         <Image src={"/todoList.png"} alt="todo" width={50} height={30} />
         <h1 className="group text-2xl">To-Do List</h1>
@@ -88,6 +88,6 @@ export default function TodoList() {
           </li>
         ))}
       </ul>
-    </main>
+    </div>
   );
 }
