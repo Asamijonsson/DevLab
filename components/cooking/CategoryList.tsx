@@ -1,11 +1,27 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
-export default function CategoryList() {
-  const [openCategory, setOpenCategory] = useState(null);
-  const listRef = useRef(null);
+type Food = {
+  name: string;
+};
 
-  const receipe = [
+type Subcategory = {
+  categoryName: string;
+  foodName: Food[];
+};
+
+type Category = {
+  id: number;
+  category: string;
+  subcategory?: Subcategory[];
+  foodName?: Food[];
+};
+
+export default function CategoryList() {
+  const [openCategory, setOpenCategory] = useState<number | null>(null);
+  const listRef = useRef<HTMLUListElement>(null);
+
+  const receipe: Category[] = [
     {
       id: 0,
       category: "Party",
@@ -61,7 +77,7 @@ export default function CategoryList() {
     }
   }, []);
 
-  const renderMenuItems = (item) => {
+  const renderMenuItems = (item: Category) => {
     if (item.subcategory) {
       return item.subcategory.map((sub, i) => (
         <div key={i} className="ml-4 mt-2">

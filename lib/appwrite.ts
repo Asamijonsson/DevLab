@@ -1,15 +1,19 @@
 import { Client, Databases, ID } from "appwrite";
 
-const PROJECT_ID = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!;
-const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!;
-const COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID!;
+const PROJECT_ID = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID ?? "";
+const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID ?? "";
+const COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID ?? ""!;
+
+if (!DATABASE_ID || !COLLECTION_ID || !PROJECT_ID) {
+  console.error("Missing Appwrite environment variables");
+}
 
 const client = new Client()
   .setEndpoint("https://fra.cloud.appwrite.io/v1")
   .setProject(PROJECT_ID);
 
 export const database = new Databases(client);
-const generatedId = ID.unique();
+const newId = ID.unique();
 
 type Todo = {
   id: string;
@@ -32,8 +36,8 @@ export const getItems = async (): Promise<Todo[] | undefined> => {
 
 export const addTodo = async (name: string) => {
   try {
-    await database.createDocument(DATABASE_ID, COLLECTION_ID, generatedId, {
-      id: generatedId,
+    await database.createDocument(DATABASE_ID, COLLECTION_ID, newId, {
+      id: newId,
       name: name,
     });
   } catch (error) {

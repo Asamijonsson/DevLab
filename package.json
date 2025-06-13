@@ -10,8 +10,8 @@
     "export": "next export"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.21.0",
     "appwrite": "^18.1.1",
+    "firebase": "^11.9.1",
     "gsap": "^3.13.0",
     "next": "15.3.3",
     "react": "^19.0.0",
