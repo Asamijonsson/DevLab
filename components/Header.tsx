@@ -6,7 +6,7 @@ import {
   subscribeToAuthStateChanges,
 } from "../lib/auth";
 import { useState, useEffect, ReactNode } from "react";
-import { User } from "firebase/auth"; // Firebase's User type
+import { User } from "firebase/auth";
 import Navbar from "./Navbar";
 import Image from "next/image";
 
@@ -43,7 +43,7 @@ export default function Header({ children }: HeaderProps) {
           <button onClick={signOutUser}>Sign Out</button>
         </>
       ) : (
-        <button onClick={signInWithGoogle}>Sign In with Google</button>
+        <button onClick={signInWithGoogle}>Unlock Magic</button>
       )}
       {children}
     </div>

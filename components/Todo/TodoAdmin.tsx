@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { getItems, addTodo, database } from "../lib/appwrite";
+import { getItems, addTodo, database } from "../../lib/appwrite";
 import { CgRemoveR } from "react-icons/cg";
 import Image from "next/image";
 
@@ -17,7 +17,7 @@ type Todo = {
   name: string;
 };
 
-export default function TodoList() {
+export default function TodoAdmin() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [newTodo, setNewTodo] = useState("");
 
@@ -57,10 +57,10 @@ export default function TodoList() {
 
   return (
     <div className="p-4 max-w-xl mx-auto">
-      <div className="flex gap-2 items-center justify-center pb-2 ">
+      {/* <div className="flex gap-2 items-center justify-center pb-2 ">
         <Image src={"/todoList.png"} alt="todo" width={50} height={30} />
         <h1 className="group text-2xl">To-Do List</h1>
-      </div>
+      </div> */}
       <div className="flex mb-4 gap-2">
         <input
           className="rounded-full border px-3 flex-1"

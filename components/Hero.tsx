@@ -27,18 +27,15 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="overflow-x-hidden">
-      <div ref={imageRef}>
-        <Image
-          src="/hero2.jpg"
-          alt="hero"
-          width={1920}
-          height={400}
-          className="w-full h-auto"
-        />
-      </div>
-
-      <p className="flex justify-center pt-4 text-xl text-center">
+    <div ref={imageRef} className="overflow-x-hidden">
+      <Image
+        src="/hero2.jpg"
+        alt="hero"
+        width={1920}
+        height={400}
+        className="w-full h-auto"
+      />
+      <p className="flex justify-center text-center pb-20">
         Hi, welcome to my website! This website is my hobby project lab
         (●&apos;◡&apos;●)
       </p>

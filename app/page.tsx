@@ -1,6 +1,6 @@
 import About from "@/components/About";
 import Hero from "@/components/Hero";
-import TodoList from "@/components/TodoList";
+import TodoList from "@/components/Todo/TodoList";
 
 export default function page() {
   return (
