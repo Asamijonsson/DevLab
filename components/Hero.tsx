@@ -12,9 +12,11 @@ export default function Hero() {
         height={350}
         className="outline-2 outline-white"
       />
-      <h1 className="flex justify-center pt-4">
-        Hi, welcome to my website! This website is my hobby project lab (●'◡'●)
-      </h1>
+
+      <p className="flex justify-center pt-4">
+        Hi, welcome to my website! This website is my hobby project lab
+        (●&apos;◡&apos;●)
+      </p>
     </>
   );
 }
