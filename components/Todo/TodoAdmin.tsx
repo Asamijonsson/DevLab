@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { getItems, addTodo, database } from "../../lib/appwrite";
 import { CgRemoveR } from "react-icons/cg";
-import Image from "next/image";
 
 const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID ?? "";
 const COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID ?? "";
@@ -57,10 +56,6 @@ export default function TodoAdmin() {
 
   return (
     <div className="p-4 max-w-xl mx-auto">
-      {/* <div className="flex gap-2 items-center justify-center pb-2 ">
-        <Image src={"/todoList.png"} alt="todo" width={50} height={30} />
-        <h1 className="group text-2xl">To-Do List</h1>
-      </div> */}
       <div className="flex mb-4 gap-2">
         <input
           className="rounded-full border px-3 flex-1"
