@@ -1,23 +1,44 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
-  return (
-    <div className="h-dvh w-screen overflow-x-hidden polygon(0 0, 100% 0, 100% 100%, 0 100%) ">
-      <Image
-        src={"/hero2.jpg"}
-        alt="hero"
-        width={1720}
-        height={250}
-        className="w-full h-auto"
-      />
+  const imageRef = useRef<HTMLDivElement>(null);
 
-      <p className="flex justify-center pt-4">
+  useEffect(() => {
+    if (imageRef.current) {
+      gsap.to(imageRef.current, {
+        opacity: 0,
+        scale: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: imageRef.current,
+          start: "top top", // start animation when image hits top of viewport
+          end: "bottom+=100 top", // end animation after scrolling 100px beyond
+          scrub: true, // sync with scroll
+        },
+      });
+    }
+  }, []);
+
+  return (
+    <div className="overflow-x-hidden">
+      <div ref={imageRef}>
+        <Image
+          src="/hero2.jpg"
+          alt="hero"
+          width={1920}
+          height={400}
+          className="w-full h-auto"
+        />
+      </div>
+
+      <p className="flex justify-center pt-4 text-xl text-center">
         Hi, welcome to my website! This website is my hobby project lab
         (●&apos;◡&apos;●)
       </p>
