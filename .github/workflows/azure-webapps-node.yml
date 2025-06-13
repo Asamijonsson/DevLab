@@ -52,7 +52,7 @@ jobs:
           zip -r release.zip .next package.json public
 
       - name: Upload release.zip
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: release-zip
           path: release.zip
