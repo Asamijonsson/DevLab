@@ -59,8 +59,6 @@ jobs:
           filename: release.zip
           path: |
             .next
-            package.json
-            node_modules
             public
 
       - name: Upload artifact for deployment job
