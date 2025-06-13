@@ -51,16 +51,22 @@ jobs:
       - name: npm install, build
         run: |
           npm install
-          npm run build
+          npm run build --if-present
 
-      - name: Zip the build output
-        run: |
-          zip -r release.zip .next package.json public
+      - name: Zip Release
+        uses: TheDoctor0/zip-release@0.6.1
+        with:
+          filename: release.zip
+          path: |
+            .next
+            package.json
+            node_modules
+            public
 
-      - name: Upload release.zip
+      - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: release-zip
+          name: node-app
           path: release.zip
 
   deploy:
