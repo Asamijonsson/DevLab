@@ -82,7 +82,7 @@ export default function TodoList() {
       ) : (
         <div>
           <div className="flex justify-between items-center underline text-white mb-4 ">
-            <p className="flex">Task</p>
+            <p className="flex">Magic</p>
             <p>Damage</p>
           </div>
           <ul>

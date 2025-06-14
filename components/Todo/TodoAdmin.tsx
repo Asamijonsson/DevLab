@@ -80,7 +80,7 @@ export default function TodoAdmin() {
         </button>
       </div>
       <div className="flex justify-between items-center underline">
-        <p>Task</p>
+        <p>Magic</p>
         <p className="pr-7">Damage</p>
       </div>
       <ul>
