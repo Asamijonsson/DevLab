@@ -21,6 +21,7 @@ if (!DATABASE_ID || !COLLECTION_ID) {
 type Todo = {
   id: string;
   name: string;
+  dmg: string;
 };
 
 export default function TodoList() {
@@ -31,6 +32,9 @@ export default function TodoList() {
     const unsubscribe = subscribeToAuthStateChanges(
       (firebaseUser: User | null) => {
         setUser(firebaseUser);
+        if (!firebaseUser) {
+          fetchTodos();
+        }
       }
     );
 
@@ -76,16 +80,23 @@ export default function TodoList() {
       {user ? (
         <TodoAdmin />
       ) : (
-        <ul>
-          {todos.map((todo) => (
-            <li
-              key={todo.id}
-              className="flex justify-between items-center border-b py-2 text-white"
-            >
-              {todo.name}
-            </li>
-          ))}
-        </ul>
+        <div>
+          <div className="flex justify-between items-center underline text-white mb-4 ">
+            <p className="flex">Task</p>
+            <p>Damage</p>
+          </div>
+          <ul>
+            {todos.map((todo) => (
+              <li
+                key={todo.id}
+                className="flex justify-between items-center border-b py-2 text-white"
+              >
+                <p className="flex">{todo.name}</p>
+                <p>{todo.dmg}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );

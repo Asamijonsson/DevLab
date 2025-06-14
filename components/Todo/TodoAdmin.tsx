@@ -14,11 +14,13 @@ if (!DATABASE_ID || !COLLECTION_ID) {
 type Todo = {
   id: string;
   name: string;
+  dmg: string;
 };
 
 export default function TodoAdmin() {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [newTodo, setNewTodo] = useState("");
+  const [name, setName] = useState("");
+  const [dmg, setDmg] = useState("");
 
   useEffect(() => {
     fetchTodos();
@@ -35,10 +37,11 @@ export default function TodoAdmin() {
   };
 
   const generateTodo = async () => {
-    if (!newTodo.trim()) return;
+    if (!name.trim() || !dmg.trim()) return;
     try {
-      await addTodo(newTodo);
-      setNewTodo("");
+      await addTodo(name, dmg);
+      setName("");
+      setDmg("");
       await fetchTodos();
     } catch (err) {
       console.error("Error adding todo", err);
@@ -60,8 +63,14 @@ export default function TodoAdmin() {
         <input
           className="rounded-full border px-3 flex-1"
           placeholder="New task"
-          value={newTodo}
-          onChange={(e) => setNewTodo(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          className="rounded-full border px-3 flex-1"
+          placeholder="Set Damage"
+          value={dmg}
+          onChange={(e) => setDmg(e.target.value)}
         />
         <button
           onClick={generateTodo}
@@ -70,16 +79,24 @@ export default function TodoAdmin() {
           Add
         </button>
       </div>
+      <div className="flex justify-between items-center underline">
+        <p>Task</p>
+        <p className="pr-7">Damage</p>
+      </div>
       <ul>
         {todos.map((todo) => (
           <li
             key={todo.id}
-            className="flex justify-between items-center border-b py-2 text-white"
+            className="flex justify-between items-start border-b py-2 text-white"
           >
-            {todo.name}
-            <button onClick={() => deleteTodo(todo.id)}>
-              <CgRemoveR />
-            </button>
+            <p className="text-left">{todo.name}</p>
+            <div className="flex items-center gap-4">
+              <p>{todo.dmg}</p>
+
+              <button onClick={() => deleteTodo(todo.id)}>
+                <CgRemoveR />
+              </button>
+            </div>
           </li>
         ))}
       </ul>

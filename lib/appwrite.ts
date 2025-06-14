@@ -18,6 +18,7 @@ const newId = ID.unique();
 type Todo = {
   id: string;
   name: string;
+  dmg: string;
 };
 
 export const getItems = async (): Promise<Todo[] | undefined> => {
@@ -26,6 +27,7 @@ export const getItems = async (): Promise<Todo[] | undefined> => {
     const todos = result.documents.map((doc) => ({
       id: doc.$id,
       name: doc.name,
+      dmg: doc.dmg,
     }));
 
     return todos;
@@ -34,11 +36,12 @@ export const getItems = async (): Promise<Todo[] | undefined> => {
   }
 };
 
-export const addTodo = async (name: string) => {
+export const addTodo = async (name: string, dmg: string) => {
   try {
     await database.createDocument(DATABASE_ID, COLLECTION_ID, newId, {
       id: newId,
       name: name,
+      dmg: dmg,
     });
   } catch (error) {
     console.log(error);
