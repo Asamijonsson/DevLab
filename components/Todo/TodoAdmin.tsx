@@ -14,13 +14,13 @@ if (!DATABASE_ID || !COLLECTION_ID) {
 type Todo = {
   id: string;
   name: string;
-  dmg: string;
+  dmg: number;
 };
 
 export default function TodoAdmin() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [name, setName] = useState("");
-  const [dmg, setDmg] = useState("");
+  const [dmg, setDmg] = useState(0);
 
   useEffect(() => {
     fetchTodos();
@@ -37,11 +37,11 @@ export default function TodoAdmin() {
   };
 
   const generateTodo = async () => {
-    if (!name.trim() || !dmg.trim()) return;
+    if (!name.trim()) return;
     try {
       await addTodo(name, dmg);
       setName("");
-      setDmg("");
+      setDmg(0);
       await fetchTodos();
     } catch (err) {
       console.error("Error adding todo", err);
@@ -62,15 +62,15 @@ export default function TodoAdmin() {
       <div className="flex mb-4 gap-2">
         <input
           className="rounded-full border px-3 flex-1"
-          placeholder="New task"
+          placeholder="New magic"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <input
-          className="rounded-full border px-3 flex-1"
+          className="rounded-full border border-white px-3 flex-1 text-neutral-400"
           placeholder="Set Damage"
           value={dmg}
-          onChange={(e) => setDmg(e.target.value)}
+          onChange={(e) => setDmg(Number(e.target.value))}
         />
         <button
           onClick={generateTodo}
