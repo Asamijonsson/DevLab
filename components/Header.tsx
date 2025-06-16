@@ -35,7 +35,9 @@ export default function Header({ children }: HeaderProps) {
 
   return (
     <div className="flex justify-center items-center pt-4 text-white gap-4">
-      <Image src="/logo.png" alt="logo" width={50} height={75} />
+      <a href="./">
+        <Image src="/logo.png" alt="logo" width={50} height={75} />
+      </a>
       <Navbar />
       {user ? (
         <>

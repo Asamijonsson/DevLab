@@ -20,7 +20,9 @@ type Todo = {
 export default function TodoAdmin() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [name, setName] = useState("");
-  const [dmg, setDmg] = useState(0);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [dmgInput, setDmgInput] = useState("");
+  const [dmg, setDmg] = useState<number | null>(null);
 
   useEffect(() => {
     fetchTodos();
@@ -39,7 +41,7 @@ export default function TodoAdmin() {
   const generateTodo = async () => {
     if (!name.trim()) return;
     try {
-      await addTodo(name, dmg);
+      await addTodo(name, dmg ?? 0);
       setName("");
       setDmg(0);
       await fetchTodos();
@@ -58,7 +60,7 @@ export default function TodoAdmin() {
   };
 
   return (
-    <div className="p-4 max-w-xl mx-auto">
+    <div>
       <div className="flex mb-4 gap-2">
         <input
           className="rounded-full border px-3 flex-1"
@@ -67,10 +69,21 @@ export default function TodoAdmin() {
           onChange={(e) => setName(e.target.value)}
         />
         <input
-          className="rounded-full border border-white px-3 flex-1 text-neutral-400"
+          className="rounded-full border max-w-25 border-white px-3 flex-1 text-neutral-400"
           placeholder="Set Damage"
-          value={dmg}
-          onChange={(e) => setDmg(Number(e.target.value))}
+          value={dmg ?? 0}
+          onChange={(e) => {
+            const val = e.target.value;
+
+            // Allow empty, integers, decimals (like ".", "0.", "0.1", "1.2")
+            if (/^\d*\.?\d*$/.test(val)) {
+              setDmgInput(val);
+
+              // Only update dmg if it's a valid number
+              const parsed = Number(val);
+              setDmg(!isNaN(parsed) && val !== "" ? parsed : null);
+            }
+          }}
         />
         <button
           onClick={generateTodo}
@@ -83,7 +96,7 @@ export default function TodoAdmin() {
         <p>Magic</p>
         <p className="pr-7">Damage</p>
       </div>
-      <ul>
+      <ul className="mb-4">
         {todos.map((todo) => (
           <li
             key={todo.id}

@@ -28,7 +28,7 @@ export default function About() {
   }, []);
 
   return (
-    <div ref={imageRef} className="p-4 max-w-full mx-auto absolute-center">
+    <div className="p-4 max-w-full mx-auto absolute-center">
       <h1 className="text-center text-2xl pb-1">About me</h1>
       <Image
         src={"/option.jpg"}
@@ -37,11 +37,13 @@ export default function About() {
         height={350}
         className="outline-2 outline-white w-full h-auto"
       />
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus amet
-        totam dolor expedita accusamus soluta ullam necessitatibus nesciunt
-        laudantium adipisci eum doloribus distinctio eius, qui porro.
-        Consectetur illum vel iusto.
+      <p className="pt-2 text-center">
+        My working career started when I was 18 years old at Queen of Hearts
+        Banquet Hall at Tokyo Disneyland. Then, I worked at Animate as a section
+        leader and assistant to several manga artists, moved to All Nippon
+        Airways Cargo, and worked at Starbucks and a Kyoto-style restaurant
+        before I moved to Sweden. I worked as a chef over 10 years in Sweden,
+        and now I am a software developer.
       </p>
     </div>
   );

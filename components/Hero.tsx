@@ -27,7 +27,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div ref={imageRef} className="overflow-x-hidden">
+    <div className="overflow-x-hidden">
       <Image
         src="/hero2.jpg"
         alt="hero"

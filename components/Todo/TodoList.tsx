@@ -1,103 +1,65 @@
-"use client";
+import { useState } from "react";
 
-import { useState, useEffect } from "react";
-import { getItems } from "../../lib/appwrite";
-import {
-  signInWithGoogle,
-  subscribeToAuthStateChanges,
-  signOutUser,
-} from "../../lib/auth";
-import { User } from "firebase/auth";
-import Image from "next/image";
-import TodoAdmin from "./TodoAdmin";
+export default function TodoList({
+  todos,
+}: {
+  todos: { id: string; name: string; dmg: number }[];
+}) {
+  const [sortType, setSortType] = useState("name");
+  const [sortDirection, setSortDirection] = useState("asc");
 
-const DATABASE_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID ?? "";
-const COLLECTION_ID = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_ID ?? "";
-
-if (!DATABASE_ID || !COLLECTION_ID) {
-  console.error("Missing Appwrite environment variables");
-}
-
-type Todo = {
-  id: string;
-  name: string;
-  dmg: number;
-};
-
-export default function TodoList() {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const unsubscribe = subscribeToAuthStateChanges(
-      (firebaseUser: User | null) => {
-        setUser(firebaseUser);
-        if (!firebaseUser) {
-          fetchTodos();
-        }
-      }
-    );
-
-    return () => unsubscribe();
-  }, []);
-
-  useEffect(() => {
-    fetchTodos();
-  }, []);
-
-  const fetchTodos = async () => {
-    try {
-      const data = await getItems();
-      setTodos(data ?? []);
-    } catch (error) {
-      console.log(error);
-      setTodos([]);
+  const sortedTodos = [...todos].sort((a, b) => {
+    if (sortType === "name") {
+      const result = a.name.localeCompare(b.name, "ja", {
+        sensitivity: "base",
+      });
+      return sortDirection === "asc" ? result : -result;
+    } else if (sortType === "dmg") {
+      const result = a.dmg - b.dmg;
+      return sortDirection === "asc" ? result : -result;
     }
-  };
-
+    return 0;
+  });
   return (
-    <div className="p-4 pt-50 max-w-xl mx-auto">
-      <div className="flex gap-2 items-center justify-center pb-2 ">
-        <Image src={"/todoList.png"} alt="todo" width={50} height={30} />
-        <h1 className="group text-2xl pr-0.5">Magic List</h1>
-        {!user ? (
-          <button
-            className="group relative plz-10 w-fit cursor-pointer overflow-hidden rounded-full bg-violet-50 px-7 py-3 text-black"
-            onClick={signInWithGoogle}
-          >
-            Generate Magic
-          </button>
-        ) : (
-          <button
-            className="group relative plz-10 w-fit cursor-pointer overflow-hidden rounded-full bg-violet-50 px-7 py-3 text-black"
-            onClick={signOutUser}
-          >
-            Return
-          </button>
-        )}
+    <div className="overflow-x-hidden">
+      <div className="flex justify-between items-center underline text-white mb-4 ">
+        <p>Magic</p>
+        <p>Damage</p>
       </div>
-
-      {user ? (
-        <TodoAdmin />
-      ) : (
-        <div>
-          <div className="flex justify-between items-center underline text-white mb-4 ">
-            <p>Magic</p>
-            <p>Damage</p>
-          </div>
-          <ul>
-            {todos.map((todo) => (
-              <li
-                key={todo.id}
-                className="flex justify-between items-center border-b py-2 text-white"
-              >
-                <p>{todo.name}</p>
-                <p>{todo.dmg}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className="flex justify-between gap-2 mb-4 text-sm">
+        <button
+          className={`flex px-2 py-1 rounded  ${
+            sortType === "name"
+              ? "bg-blue-500 text-white"
+              : "bg-gray-700 text-white"
+          }`}
+          onClick={() => setSortType("name")}
+        >
+          Sort A-Z
+        </button>
+        <button
+          onClick={() => {
+            setSortType("dmg");
+            setSortDirection(() =>
+              sortType === "dmg" && sortDirection === "desc" ? "asc" : "desc"
+            );
+          }}
+        >
+          Sort by Damage
+          {sortType === "dmg" && sortDirection === "desc" ? "↑" : "↓"}
+        </button>
+      </div>
+      <ul>
+        {sortedTodos.map((todo) => (
+          <li
+            key={todo.id}
+            className="flex justify-between items-center border-b py-2 text-white w-full max-w-full overflow-hidden"
+          >
+            <p className="break-words max-w-[70%]">{todo.name}</p>
+            <p className="text-right">{todo.dmg}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
