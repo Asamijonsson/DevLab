@@ -38,12 +38,10 @@ export default function About() {
         className="outline-2 outline-white w-full h-auto"
       />
       <p className="pt-2 text-center">
-        My working career started when I was 18 years old at Queen of Hearts
-        Banquet Hall at Tokyo Disneyland. Then, I worked at Animate as a section
-        leader and assistant to several manga artists, moved to All Nippon
-        Airways Cargo, and worked at Starbucks and a Kyoto-style restaurant
-        before I moved to Sweden. I worked as a chef over 10 years in Sweden,
-        and now I am a software developer.
+        I’m a passionate front-end developer with a love for creating intuitive
+        and dynamic user interfaces. With a foundation in HTML, CSS, and
+        JavaScript, I specialize in building responsive and accessible web
+        applications.
       </p>
     </div>
   );
