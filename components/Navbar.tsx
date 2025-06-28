@@ -12,7 +12,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link href="/cooking" className="hover:underline">
-            Cooking
+            Hobby
           </Link>
         </li>
       </ul>
