@@ -11,8 +11,8 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link href="/cooking" className="hover:underline">
-            Hobby
+          <Link href="/hobbies" className="hover:underline">
+            Hobbies
           </Link>
         </li>
       </ul>
