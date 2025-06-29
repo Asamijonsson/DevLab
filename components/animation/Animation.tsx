@@ -24,7 +24,7 @@ export default function Animation(): JSX.Element {
 
   return (
     <section className="min-h-screen  py-8 px-4" id="main-content">
-      <p className="text-center">Animation</p>
+      <p className="text-center">Animation </p>
       <div className="flex justify-center items-center pb-50">
         <video
           controls
