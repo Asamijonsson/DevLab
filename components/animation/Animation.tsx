@@ -33,7 +33,7 @@ export default function Animation(): JSX.Element {
           muted
           style={{ borderRadius: "1rem" }}
         >
-          <source src="/runrunrun.mp4" type="video/mp4" />
+          <source src="/videos/runrunrun.mp4" type="video/mp4" />
         </video>
       </div>
     </section>
