@@ -5,7 +5,9 @@ export default function TodoList({
 }: {
   todos: { id: string; name: string; dmg: number }[];
 }) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [sortType, setSortType] = useState("name");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [sortDirection, setSortDirection] = useState("asc");
 
   const sortedTodos = [...todos].sort((a, b) => {
