@@ -26,7 +26,7 @@ export default function TodoList({
         <p>Magic</p>
         <p>Damage</p>
       </div>
-      <div className="flex justify-between gap-2 mb-4 text-sm">
+      {/* <div className="flex justify-between gap-2 mb-4 text-sm">
         <button
           className={`flex px-2 py-1 rounded  ${
             sortType === "name"
@@ -48,7 +48,7 @@ export default function TodoList({
           Sort by Damage
           {sortType === "dmg" && sortDirection === "desc" ? "↑" : "↓"}
         </button>
-      </div>
+      </div> */}
       <ul>
         {sortedTodos.map((todo) => (
           <li
