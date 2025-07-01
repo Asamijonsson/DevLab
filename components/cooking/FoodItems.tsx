@@ -12,7 +12,6 @@ export default function RenderMenuItems({ item }: Props): JSX.Element | null {
       <ul className="flex ml-4 list-none list-inside text-white mt-2">
         {item.foodName?.map((food, idx) => (
           <li key={idx} className="mr-4">
-            <p>{food.name}</p>
             {food.image && (
               <Image
                 src={food.image}

@@ -9,27 +9,34 @@ type Props = {
 export default function AnimationItems({ items }: Props): JSX.Element | null {
   return (
     <>
-      <ul className="flex ml-4 list-none list-inside text-white mt-2">
+      <ul className="flex ml-4 list-none list-inside justify-center text-white mt-2">
         {items.video && (
-          <video
-            controls
-            width="100%"
-            autoPlay
-            muted
-            style={{ borderRadius: "1rem" }}
-          >
-            <source src={items.video} type="video/mp4" />
-          </video>
+          <div className="flex flex-col items-center">
+            <video
+              controls
+              width="100%"
+              autoPlay
+              muted
+              style={{ borderRadius: "1rem" }}
+              className="h-full max-h-[60vh] w-auto object-contain"
+            >
+              <source src={items.video} type="video/mp4" />
+            </video>
+            <p>{items.desc}</p>
+          </div>
         )}
         {items.image && (
-          <Image
-            src={items.image}
-            alt={items.title}
-            width={900} // set appropriate width
-            height={250} // set appropriate height
-            className="mt-1 rounded"
-            loading="lazy"
-          />
+          <div className="flex flex-col items-center">
+            <Image
+              src={items.image}
+              alt={items.title}
+              width={900} // set appropriate width
+              height={250} // set appropriate height
+              className="mt-1 rounded"
+              loading="lazy"
+            />
+            <p>{items.desc}</p>
+          </div>
         )}
       </ul>
     </>

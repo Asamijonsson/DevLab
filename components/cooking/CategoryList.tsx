@@ -3,7 +3,7 @@
 import { JSX, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import FoodItems from "./FoodItems";
-import CategoryButton from "../CategoryButton";
+import CategoryButton from "../home/CategoryButton";
 import { recipes } from "@/data/recipes";
 import type { Category } from "@/types/food";
 import Image from "next/image";
@@ -34,7 +34,10 @@ export default function CategoryList(): JSX.Element {
 
   return (
     <section className="min-h-screen  py-8 px-4" id="main-content">
-      <p className="text-center">Cooking</p>
+      <p className="text-center">
+        Cooking
+        <br />I love cooking because I love eating!
+      </p>
       <div className="flex justify-center items-center pb-10">
         <Image
           src="/foodmain.jpg"

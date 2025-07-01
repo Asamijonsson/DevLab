@@ -3,4 +3,5 @@ export type Animation = {
   title: string;
   video?: string;
   image?: string;
+  desc: string;
 };

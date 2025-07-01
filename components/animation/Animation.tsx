@@ -2,7 +2,7 @@
 
 import { JSX, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import CategoryButton from "../CategoryButton";
+import CategoryButton from "../home/CategoryButton";
 import { animations } from "@/data/animation";
 import type { Animation } from "@/types/anime";
 import AnimationItems from "./AnimationItems";
@@ -31,16 +31,15 @@ export default function Animation(): JSX.Element {
   };
 
   return (
-    <section className="min-h-screen  py-8 px-4" id="main-content">
-      <p className="text-center">3D and Animation </p>
-      <div className="flex justify-center items-center pb-50">
-        <video
-          controls
-          width="100%"
-          autoPlay
-          muted
-          style={{ borderRadius: "1rem" }}
-        >
+    <section className="min-h-screen pt-25 py-8 px-4" id="main-content">
+      <p className="text-center">
+        3D Animation
+        <br /> I grew up with ACG culture, and even after moving from Japan, I
+        still love drawing and creating 3D animation as a hobby
+      </p>
+
+      <div className="flex justify-center items-center pb-10">
+        <video controls autoPlay muted style={{ borderRadius: "1rem" }}>
           <source src="/videos/runrunrun.mp4" type="video/mp4" />
         </video>
       </div>

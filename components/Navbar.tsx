@@ -15,6 +15,11 @@ const Navbar = () => {
             Hobbies
           </Link>
         </li>
+        <li>
+          <Link href="/about" className="hover:underline">
+            About
+          </Link>
+        </li>
       </ul>
     </nav>
   );

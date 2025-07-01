@@ -1,4 +1,4 @@
-import About from "@/components/About";
+import About from "@/components/home/About";
 import Hero from "@/components/Hero";
 import TodoList from "@/components/Todo/TodoListWrapper";
 

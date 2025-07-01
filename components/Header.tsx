@@ -40,10 +40,20 @@ export default function Header() {
           {user ? (
             <>
               <span>Hello, {user.displayName || user.email}!</span>
-              <button onClick={signOutUser}>Sign Out</button>
+              <button
+                onClick={signOutUser}
+                className="cursor-pointer hover:underline"
+              >
+                Sign Out
+              </button>
             </>
           ) : (
-            <button onClick={signInWithGoogle}>Unlock Magic</button>
+            <button
+              onClick={signInWithGoogle}
+              className="cursor-pointer hover:underline"
+            >
+              Sign in
+            </button>
           )}
         </div>
       </div>
