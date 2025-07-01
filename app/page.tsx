@@ -4,12 +4,12 @@ import TodoList from "@/components/Todo/TodoListWrapper";
 
 export default function page() {
   return (
-    <div className="flex flex-col w-full pt-0 pb-20 gap-16 sm:pt-0">
+    <main className="flex flex-col w-full pt-[55px] pb-20 gap-16 sm:pt-[55px]">
       <Hero />
-      <main className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <About />
         <TodoList />
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }

@@ -12,28 +12,29 @@ export default function Hero() {
 
   useEffect(() => {
     if (imageRef.current) {
-      gsap.to(imageRef.current, {
-        opacity: 0,
-        scale: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: imageRef.current,
-          start: "top top", // start animation when image hits top of viewport
-          end: "bottom+=100 top", // end animation after scrolling 100px beyond
-          scrub: true, // sync with scroll
-        },
+      ScrollTrigger.create({
+        trigger: imageRef.current,
+        start: "top top",
+        end: "bottom top",
+        pin: true,
+        pinSpacing: true,
       });
     }
+
+    // Cleanup on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   return (
-    <div className="overflow-x-hidden">
+    <div ref={imageRef} className="w-full overflow-x-hidden">
       <Image
         src="/hero2.jpg"
         alt="hero"
         width={1920}
-        height={400}
-        className="w-full h-auto"
+        height={380}
+        className=" h-[60vh] sm:h-[70vh] md:h-[73vh] lg:h-[88vh] object-cover"
       />
       <p className="flex justify-center text-center pb-20">
         Hi, welcome to my website! This website is my hobby project lab
