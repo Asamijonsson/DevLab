@@ -29,7 +29,7 @@ export const animations: Animation[] = [
     id: 5,
     title: "Ball Animation Practice",
     video: "/videos/ball.mp4",
-    desc: "I took four animation classes from an japanese animator Ryo Wakasugi, who has worked on Spider-Man and with Pixar Animation. Used Maya to create a bouncing ball animation.",
+    desc: "I took four animation classes from a japanese animator Ryo Wakasugi, who has worked on Spider-Man and with Pixar Animation. Used Maya to create a bouncing ball animation.",
   },
   {
     id: 6,

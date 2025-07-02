@@ -34,8 +34,8 @@ export default function Animation(): JSX.Element {
     <section className="min-h-screen pt-25 py-8 px-4" id="main-content">
       <p className="text-center">
         3D Animation
-        <br /> I grew up with ACG culture, and even after moving from Japan, I
-        still love drawing and creating 3D animation as a hobby
+        <br /> I grew up with ACG culture, I loved drawing, and created 3D
+        animation as a hobby
       </p>
 
       <div className="flex justify-center items-center pb-10">

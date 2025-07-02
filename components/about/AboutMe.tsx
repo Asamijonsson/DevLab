@@ -51,19 +51,29 @@ export default function AboutMe() {
               );
             case "About This Website":
               return (
-                <div className="p-6 border-2 border-white rounded-lg mx-auto my-3 max-w-xl">
-                  <p>To build this website, I use the following tools:</p>
-                  <ul className="list-disc list-inside text-left pl-7">
-                    <li>Next.js with TypeScript and Tailwind CSS</li>
-                    <li>GSAP for animations</li>
-                    <li>Appwrite for database storage</li>
-                    <li>Firebase for authentication</li>
-                    <li>
-                      Code hosted on GitHub and deployed to Azure via GitHub
-                      Actions
-                    </li>
-                  </ul>
-                </div>
+                <>
+                  <div className="p-6 border-2 border-white rounded-lg mx-auto my-3 max-w-xl">
+                    <p>To build this website, I use the following tools:</p>
+                    <ul className="list-disc list-inside text-left pl-7">
+                      <li>Next.js with TypeScript and Tailwind CSS</li>
+                      <li>GSAP for animations</li>
+                      <li>Appwrite for database storage</li>
+                      <li>Firebase for authentication</li>
+                      <li>
+                        Code hosted on GitHub and deployed to Azure via GitHub
+                        Actions
+                      </li>
+                    </ul>
+                  </div>
+                  {/* <div className="p-6 border-2 border-white rounded-lg mx-auto my-3 max-w-xl">
+                    <p>
+                      Future plan
+                      <br />
+                      You can create and use the magic to defeat the enemy
+                      (⁎˃ᴗ˂⁎)
+                    </p>
+                  </div> */}
+                </>
               );
 
             default:
