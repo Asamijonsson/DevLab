@@ -46,7 +46,17 @@ export default function AboutMe() {
                   <br />
                   Additionally, I have studied SQL, GitHub, end-to-end testing
                   with Cypress, Python and machine learning using Keras and
-                  Jupyter Notebook.
+                  Jupyter Notebook. <br />
+                  <br />
+                  Link to{" "}
+                  <a
+                    href="https://www.linkedin.com/in/asamijonsson"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className=" hover:text-gray-400 dark:hover:text-gray-300"
+                  >
+                    LinkedIn
+                  </a>
                 </p>
               );
             case "About This Website":
