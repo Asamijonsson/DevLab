@@ -33,7 +33,7 @@ export default function Animation(): JSX.Element {
   return (
     <section className="min-h-screen pt-25 py-8 px-4" id="main-content">
       <p className="text-center">
-        3D Animation
+        Animation
         <br /> I grew up with ACG culture, I loved drawing, and created 3D
         animation as a hobby
       </p>
@@ -44,7 +44,7 @@ export default function Animation(): JSX.Element {
         </video>
       </div>
 
-      <div className="max-w-2xl mx-auto">
+      {/* <div className="max-w-2xl mx-auto">
         <ul ref={listRef} className="space-y-4">
           {animations.map((item: Animation) => (
             <li key={item.id}>
@@ -57,7 +57,7 @@ export default function Animation(): JSX.Element {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
     </section>
   );
 }
