@@ -2,13 +2,13 @@
 
 import { JSX, useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import CategoryButton from "../home/CategoryButton";
-import { animations } from "@/data/animation";
+// import CategoryButton from "../home/CategoryButton";
+// import { animations } from "@/data/animation";
 import type { Animation } from "@/types/anime";
-import AnimationItems from "./AnimationItems";
+// import AnimationItems from "./AnimationItems";
 
 export default function Animation(): JSX.Element {
-  const [openCategory, setOpenCategory] = useState<number | null>(null);
+  // const [openCategory, setOpenCategory] = useState<number | null>(null);
   const listRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
@@ -26,9 +26,9 @@ export default function Animation(): JSX.Element {
       );
     }
   }, []);
-  const toggleCategory = (id: number): void => {
-    setOpenCategory(openCategory === id ? null : id);
-  };
+  // const toggleCategory = (id: number): void => {
+  //   setOpenCategory(openCategory === id ? null : id);
+  // };
 
   return (
     <section className="min-h-screen pt-25 py-8 px-4" id="main-content">
