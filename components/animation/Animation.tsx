@@ -1,6 +1,6 @@
 "use client";
 
-import { JSX, useEffect, useRef, useState } from "react";
+import { JSX, useEffect, useRef } from "react";
 import gsap from "gsap";
 // import CategoryButton from "../home/CategoryButton";
 // import { animations } from "@/data/animation";
