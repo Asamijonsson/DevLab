@@ -1,6 +1,6 @@
 import About from "@/components/home/About";
 import Hero from "@/components/Hero";
-import TodoList from "@/components/Todo/TodoListWrapper";
+
 
 export default function page() {
   return (
@@ -8,7 +8,7 @@ export default function page() {
       <Hero />
       <div className="max-w-4xl mx-auto">
         <About />
-        <TodoList />
+      
       </div>
     </main>
   );
