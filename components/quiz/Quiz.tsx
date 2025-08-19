@@ -1,28 +1,7 @@
 'use client'
 
 import { useState } from "react";
-
-type Question = {
-  id: number;
-  question: string;
-  options: string[];
-  answer: string;
-};
-
-const questions: Question[] = [
-  {
-    id: 1,
-    question: "Which anime features the character Goku?",
-    options: ["Naruto", "Dragon Ball", "One Piece", "Bleach"],
-    answer: "Dragon Ball",
-  },
-  {
-    id: 2,
-    question: "Who is the main character in Naruto?",
-    options: ["Naruto Uzumaki", "Sasuke Uchiha", "Ichigo Kurosaki", "Luffy"],
-    answer: "Naruto Uzumaki",
-  },
-];
+import {quiz} from "@/data/quiz";
 
 export default function Quiz() {
   const [current, setCurrent] = useState(0);
@@ -31,13 +10,13 @@ export default function Quiz() {
   const [showScore, setShowScore] = useState(false);
 
   const handleNext = () => {
-    if (selectedOption === questions[current].answer) {
+    if (selectedOption === quiz[current].answer) {
       setScore(score + 1);
     }
 
     setSelectedOption(null); 
 
-    if (current + 1 < questions.length) {
+    if (current + 1 < quiz.length) {
       setCurrent(current + 1);
     } else {
       setShowScore(true);
@@ -57,7 +36,7 @@ export default function Quiz() {
         {showScore ? (
           <div className="text-center">
             <h1 className="text-2xl text-black font-bold mb-4">Quiz Completed!</h1>
-            <p className="text-lg text-black">Your score: {score} / {questions.length}</p>
+            <p className="text-lg text-black">Your score: {score} / {quiz.length}</p>
             <button
               onClick={handleRestart}
               className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
@@ -68,11 +47,11 @@ export default function Quiz() {
         ) : (
           <div>
             <h2 className="text-xl text-black font-bold mb-4">
-              Question {current + 1} / {questions.length}
+              Question {current + 1} / {quiz.length}
             </h2>
-            <p className="mb-4 text-black">{questions[current].question}</p>
+            <p className="mb-4 text-black">{quiz[current].question}</p>
             <div className="flex flex-col space-y-2 mb-4">
-              {questions[current].options.map((option) => (
+              {quiz[current].options.map((option) => (
                 <button
                   key={option}
                   onClick={() => setSelectedOption(option)}
