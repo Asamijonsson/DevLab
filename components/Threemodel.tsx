@@ -39,11 +39,10 @@ export default function ThreeModel() {
     directional.position.set(5, 10, 7.5);
     scene.add(directional);
 
-    // OrbitControls
-    const controls = new OrbitControls(camera, renderer.domElement) as any;
-    controls.enableDamping = true;
-    controls.enableZoom = true;
-    controls.autoRotate = false; // stop auto-rotate
+   const controls = new OrbitControls(camera, renderer.domElement);
+(controls as any).autoRotate = false; // type-safe workaround
+controls.enableDamping = true;
+controls.enableZoom = true;
 
     // Load GLB model
     const loader = new GLTFLoader();
