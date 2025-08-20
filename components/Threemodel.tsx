@@ -52,7 +52,7 @@ controls.enableZoom = true;
     // Load GLB model
     const loader = new GLTFLoader();
     loader.load(
-      "/deskandchair1.glb?v=123", // place your model in `public/`
+      "/deskandchair.glb", // place your model in `public/`
       (gltf) => {
         modelRef.current = gltf.scene;
         scene.add(gltf.scene);
