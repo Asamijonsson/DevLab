@@ -5,6 +5,11 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
+
+interface MyOrbitControls extends OrbitControls {
+  autoRotate: boolean;
+} 
+
 export default function ThreeModel() {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const modelRef = useRef<THREE.Group | null>(null);
@@ -39,8 +44,8 @@ export default function ThreeModel() {
     directional.position.set(5, 10, 7.5);
     scene.add(directional);
 
-   const controls = new OrbitControls(camera, renderer.domElement);
-(controls as any).autoRotate = false; // type-safe workaround
+const controls = new OrbitControls(camera, renderer.domElement) as MyOrbitControls;
+controls.autoRotate = false;
 controls.enableDamping = true;
 controls.enableZoom = true;
 
