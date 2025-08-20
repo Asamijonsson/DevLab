@@ -5,8 +5,6 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-
-
 export default function ThreeModel() {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const modelRef = useRef<THREE.Group | null>(null);
@@ -14,22 +12,24 @@ export default function ThreeModel() {
   useEffect(() => {
     if (!mountRef.current) return;
 
-    // Scene, camera, renderer
+    const mount = mountRef.current; // capture ref for cleanup
+
+    // Scene
     const scene = new THREE.Scene();
+
+    // Camera
     const camera = new THREE.PerspectiveCamera(
       75,
-      mountRef.current.clientWidth / mountRef.current.clientHeight,
+      mount.clientWidth / mount.clientHeight,
       0.1,
       1000
     );
-    camera.position.set(0, 1, 5); // slightly above origin
+    camera.position.z = 5;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(
-      mountRef.current.clientWidth,
-      mountRef.current.clientHeight
-    );
-    mountRef.current.appendChild(renderer.domElement);
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(mount.clientWidth, mount.clientHeight);
+    mount.appendChild(renderer.domElement);
 
     // Lights
     const ambient = new THREE.AmbientLight(0xffffff, 0.6);
@@ -39,14 +39,20 @@ export default function ThreeModel() {
     directional.position.set(5, 10, 7.5);
     scene.add(directional);
 
+    // OrbitControls
+    const controls = new OrbitControls(camera, renderer.domElement) as any;
+    controls.enableDamping = true;
+    controls.enableZoom = true;
+    controls.autoRotate = false; // stop auto-rotate
+
     // Load GLB model
     const loader = new GLTFLoader();
     loader.load(
-      "/deskandchair.glb", // put your GLB inside public folder
+      "/deskandchair.glb", // place your model in `public/`
       (gltf) => {
         modelRef.current = gltf.scene;
         scene.add(gltf.scene);
-        gltf.scene.scale.set(1, 1, 1);
+        gltf.scene.scale.set(1, 1, 1); // adjust size
       },
       undefined,
       (error) => {
@@ -54,28 +60,18 @@ export default function ThreeModel() {
       }
     );
 
-    const controls = new OrbitControls(camera, renderer.domElement) as any;
-controls.enableDamping = true;
-controls.enableZoom = true;
-controls.autoRotate = false;
-
-   
+    // Resize handler
     const handleResize = () => {
-      if (!mountRef.current) return;
-      camera.aspect =
-        mountRef.current.clientWidth / mountRef.current.clientHeight;
+      camera.aspect = mount.clientWidth / mount.clientHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(
-        mountRef.current.clientWidth,
-        mountRef.current.clientHeight
-      );
+      renderer.setSize(mount.clientWidth, mount.clientHeight);
     };
     window.addEventListener("resize", handleResize);
 
-  
+    // Animation loop
     const animate = () => {
       requestAnimationFrame(animate);
-      controls.update(); // required if enableDamping = true
+      controls.update(); // required for damping
       renderer.render(scene, camera);
     };
     animate();
@@ -83,7 +79,7 @@ controls.autoRotate = false;
     // Cleanup
     return () => {
       window.removeEventListener("resize", handleResize);
-      mountRef.current?.removeChild(renderer.domElement);
+      mount.removeChild(renderer.domElement);
       renderer.dispose();
     };
   }, []);
