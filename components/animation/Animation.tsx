@@ -38,11 +38,11 @@ export default function Animation(): JSX.Element {
         animation as a hobby
       </p>
 
-      <div className="flex justify-center items-center pb-10">
+      {/* <div className="flex justify-center items-center pb-10">
         <video controls autoPlay muted style={{ borderRadius: "1rem" }}>
           <source src="/videos/runrunrun.mp4" type="video/mp4" />
         </video>
-      </div>
+      </div> */}
 
       {/* <div className="max-w-2xl mx-auto">
         <ul ref={listRef} className="space-y-4">
