@@ -1,0 +1,7 @@
+{
+  "mimeTypes": {
+    ".glb": "model/gltf-binary",
+    ".gltf": "model/gltf+json",
+    ".mp4": "video/mp4"
+  }
+}
