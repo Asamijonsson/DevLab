@@ -52,11 +52,10 @@ controls.enableZoom = true;
     // Load GLB model
     const loader = new GLTFLoader();
     loader.load(
-      "/deskandchair.glb", // place your model in `public/`
+      "/hobbies/deskandchair.glb", 
       (gltf) => {
-        modelRef.current = gltf.scene;
-        scene.add(gltf.scene);
-        gltf.scene.scale.set(1, 1, 1); // adjust size
+            scene.add(gltf.scene);
+        gltf.scene.scale.set(1, 1, 1); 
       },
       undefined,
       (error) => {
