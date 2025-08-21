@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
-// import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 
@@ -50,18 +50,18 @@ controls.enableDamping = true;
 controls.enableZoom = true;
 
     // Load GLB model
-    // const loader = new GLTFLoader();
-    // loader.load(
-    //   "/hobbies/deskandchair.glb", 
-    //   (gltf) => {
-    //         scene.add(gltf.scene);
-    //     gltf.scene.scale.set(1, 1, 1); 
-    //   },
-    //   undefined,
-    //   (error) => {
-    //     console.error("Error loading GLB:", error);
-    //   }
-    // );
+    const loader = new GLTFLoader();
+    loader.load(
+      "/hobbies/deskandchair.glb", 
+      (gltf) => {
+            scene.add(gltf.scene);
+        gltf.scene.scale.set(1, 1, 1); 
+      },
+      undefined,
+      (error) => {
+        console.error("Error loading GLB:", error);
+      }
+    );
 
     // Resize handler
     const handleResize = () => {
