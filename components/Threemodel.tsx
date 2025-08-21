@@ -50,18 +50,18 @@ controls.enableDamping = true;
 controls.enableZoom = true;
 
     // Load GLB model
-    const loader = new GLTFLoader();
-    loader.load(
-      "/hobbies/deskandchair.glb", 
-      (gltf) => {
-            scene.add(gltf.scene);
-        gltf.scene.scale.set(1, 1, 1); 
-      },
-      undefined,
-      (error) => {
-        console.error("Error loading GLB:", error);
-      }
-    );
+    // const loader = new GLTFLoader();
+    // loader.load(
+    //   "/hobbies/deskandchair.glb", 
+    //   (gltf) => {
+    //         scene.add(gltf.scene);
+    //     gltf.scene.scale.set(1, 1, 1); 
+    //   },
+    //   undefined,
+    //   (error) => {
+    //     console.error("Error loading GLB:", error);
+    //   }
+    // );
 
     // Resize handler
     const handleResize = () => {
