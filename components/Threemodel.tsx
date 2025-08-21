@@ -12,7 +12,7 @@ interface MyOrbitControls extends OrbitControls {
 
 export default function ThreeModel() {
   const mountRef = useRef<HTMLDivElement | null>(null);
-  const modelRef = useRef<THREE.Group | null>(null);
+  //const modelRef = useRef<THREE.Group | null>(null);
 
   useEffect(() => {
     if (!mountRef.current) return;
