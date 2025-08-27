@@ -12,12 +12,12 @@ interface MyOrbitControls extends OrbitControls {
 
 export default function ThreeModel() {
   const mountRef = useRef<HTMLDivElement | null>(null);
-  //const modelRef = useRef<THREE.Group | null>(null);
+ 
 
   useEffect(() => {
     if (!mountRef.current) return;
 
-    const mount = mountRef.current; // capture ref for cleanup
+    const mount = mountRef.current; 
 
     // Scene
     const scene = new THREE.Scene();
@@ -49,7 +49,6 @@ controls.autoRotate = false;
 controls.enableDamping = true;
 controls.enableZoom = true;
 
-    // Load GLB model
     const loader = new GLTFLoader();
     loader.load(
       "/hobbies/deskandchair.glb", 
@@ -63,7 +62,6 @@ controls.enableZoom = true;
       }
     );
 
-    // Resize handler
     const handleResize = () => {
       camera.aspect = mount.clientWidth / mount.clientHeight;
       camera.updateProjectionMatrix();
@@ -71,15 +69,13 @@ controls.enableZoom = true;
     };
     window.addEventListener("resize", handleResize);
 
-    // Animation loop
     const animate = () => {
       requestAnimationFrame(animate);
-      controls.update(); // required for damping
+      controls.update(); 
       renderer.render(scene, camera);
     };
     animate();
 
-    // Cleanup
     return () => {
       window.removeEventListener("resize", handleResize);
       mount.removeChild(renderer.domElement);
