@@ -39,7 +39,7 @@ export default function AboutMe() {
                   coding skills. I am capable of creating simple applications.
                   <br />
                   On the frontend, I have studied HTML, CSS, JavaScript,
-                  TypeScript, React, Redux and CMS. I've learned a bit about three.js as well.
+                  TypeScript, React, Redux and CMS. I’ve learned a bit about three.js as well.
                   <br />
                   On the backend, I have learned Node.js using tools like
                   Insomnia, PgAdmin and Docker as well as .NET with C#.
@@ -48,7 +48,7 @@ export default function AboutMe() {
                   with Cypress, Python and machine learning using Keras and
                   Jupyter Notebook. <br />
                   <br />
-                  Link to{" "}
+                  Link to
                   <a
                     href="https://www.linkedin.com/in/asamijonsson"
                     target="_blank"
