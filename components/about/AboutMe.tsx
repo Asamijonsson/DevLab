@@ -34,12 +34,12 @@ export default function AboutMe() {
             case "About Me":
               return (
                 <p className="p-6 border-2 border-white rounded-lg mx-auto my-3 max-w-xl">
-                  I’m a junior software developer with three and a half years of
+                  I’m a junior software developer with 3.5 years of
                   vocational college education where I learned fundamental
                   coding skills. I am capable of creating simple applications.
                   <br />
                   On the frontend, I have studied HTML, CSS, JavaScript,
-                  TypeScript, React, Redux and CMS.
+                  TypeScript, React, Redux and CMS. I've learned a bit about three.js as well.
                   <br />
                   On the backend, I have learned Node.js using tools like
                   Insomnia, PgAdmin and Docker as well as .NET with C#.

@@ -39,7 +39,7 @@ export default function Quiz() {
             <p className="text-lg text-black">Your score: {score} / {quiz.length}</p>
             <button
               onClick={handleRestart}
-              className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
+              className="mt-4 bg-[#ef7c8e] text-white py-2 px-4 rounded"
             >
               Restart Quiz
             </button>
@@ -56,7 +56,7 @@ export default function Quiz() {
                   key={option}
                   onClick={() => setSelectedOption(option)}
                   className={`py-2 text-black px-4 rounded border ${
-                    selectedOption === option ? "bg-yellow-500 text-white" : "bg-gray-200"
+                    selectedOption === option ? "bg-[#ef7c8e] text-white" : "bg-white"
                   }`}
                 >
                   {option}
@@ -66,7 +66,7 @@ export default function Quiz() {
             <button
               onClick={handleNext}
               disabled={!selectedOption}
-              className="bg-green-500 text-white py-2 px-4 rounded disabled:opacity-50"
+              className="bg-[#57e4cb] text-white py-2 px-4 rounded disabled:opacity-50"
             >
               Next
             </button>

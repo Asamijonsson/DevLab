@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { div } from "three/tsl";
 
 
 interface MyOrbitControls extends OrbitControls {
@@ -83,5 +84,5 @@ controls.enableZoom = true;
     };
   }, []);
 
-  return <div ref={mountRef} style={{ width: "100%", height: "500px" }} />;
+  return <div ref={mountRef} style={{ width: "100%", height: "450px" }} />;
 }

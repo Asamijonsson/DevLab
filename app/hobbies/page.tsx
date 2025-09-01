@@ -1,11 +1,11 @@
 import CategoryList from "@/components/cooking/CategoryList";
 import Animation from "@/components/animation/Animation";
-import ThreeModel from "@/components/Threemodel";
+import Threedcg from "@/components/3D/Threedcg";
 
 export default function Hobbies() {
   return (
     <>
-     <ThreeModel />
+      <Threedcg/>
       <Animation />
       <CategoryList />
     </>

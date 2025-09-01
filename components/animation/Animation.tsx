@@ -31,7 +31,7 @@ export default function Animation(): JSX.Element {
   // };
 
   return (
-    <section className="min-h-screen pt-25 py-8 px-4" id="main-content">
+    <section className="min-h-screen pt-25 py-8 px-4" id="animation">
       <p className="text-center">
         Animation
         <br /> I grew up with ACG culture, I loved drawing, and created 3D

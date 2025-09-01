@@ -33,7 +33,7 @@ export default function CategoryList(): JSX.Element {
   };
 
   return (
-    <section className="min-h-screen  py-8 px-4" id="main-content">
+    <section className="min-h-screen  py-8 px-4" id="cooking">
       <p className="text-center">
         Cooking
         <br />I love cooking because I love eating!

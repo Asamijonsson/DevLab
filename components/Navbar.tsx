@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaHome } from "react-icons/fa";
 
-const Navbar = () => {
+export default function Navbar () {
   return (
     <nav>
       <ul className="flex space-x-6 text-white">
@@ -30,4 +30,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+
