@@ -1,6 +1,6 @@
-export type Pokemon {
-    id: number;
-    name: string;
-    hp: number;
-    image: string; 
+export interface Pokemon {
+  id: number;
+  name: string;
+  hp: number;
+  image: string;
 }
