@@ -1,6 +1,6 @@
-export type Question = {
-    id:number;
-    question:string;
-    options: string[];
-    answer:string;
+export interface Question {
+  id: number;
+  question: string;
+  options: string[];
+  answer: string;
 }

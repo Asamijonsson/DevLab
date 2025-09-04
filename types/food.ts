@@ -1,16 +1,16 @@
-export type Food = {
+export interface Food {
   name: string;
   image?: string;
-};
+}
 
-export type Subcategory = {
+export interface Subcategory {
   categoryName: string;
   foodName: Food[];
-};
+}
 
-export type Category = {
+export interface Category {
   id: number;
   category: string;
   subcategory?: Subcategory[];
   foodName?: Food[];
-};
+}
