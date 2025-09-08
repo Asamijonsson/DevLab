@@ -61,3 +61,12 @@ Show top 5 popular movies
 
 Use index.ts to keep imports neat and consistent.
 (Currently, I only use it for food.ts since I don't import types from multiple files into a single component)
+
+- TailwindCSS
+  Cheat Sheet
+  https://flowbite.com/tools/tailwind-cheat-sheet/
+
+min-h-screen
+
+Fills the full vewport height and is responsive.
+Flexbox is used because I have a header and footer.
