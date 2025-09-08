@@ -16,8 +16,8 @@ export default function RenderMenuItems({ item }: Props): JSX.Element | null {
               <Image
                 src={food.image}
                 alt={food.name}
-                width={250} 
-                height={50} 
+                width={250}
+                height={50}
                 className="mt-1 rounded"
                 loading="lazy"
               />
