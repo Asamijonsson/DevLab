@@ -34,12 +34,13 @@ export default function AboutMe() {
             case "About Me":
               return (
                 <p className="p-6 border-2 border-white rounded-lg mx-auto my-3 max-w-xl">
-                  I’m a junior software developer with 3.5 years of
-                  vocational college education where I learned fundamental
-                  coding skills. I am capable of creating simple applications.
+                  I’m a junior software developer with 3.5 years of vocational
+                  college education where I learned fundamental coding skills. I
+                  am capable of creating simple applications.
                   <br />
                   On the frontend, I have studied HTML, CSS, JavaScript,
-                  TypeScript, React, Redux and CMS. I’ve learned a bit about three.js as well.
+                  TypeScript, React, Redux and CMS. I’ve learned a bit about
+                  three.js as well.
                   <br />
                   On the backend, I have learned Node.js using tools like
                   Insomnia, PgAdmin and Docker as well as .NET with C#.
@@ -66,7 +67,6 @@ export default function AboutMe() {
                     <p>To build this website, I use the following tools:</p>
                     <ul className="list-disc list-inside text-left pl-7">
                       <li>Next.js with TypeScript and Tailwind CSS</li>
-                      <li>GSAP for animations</li>
                       <li>Appwrite for database storage</li>
                       <li>Firebase for authentication</li>
                       <li>
@@ -75,14 +75,6 @@ export default function AboutMe() {
                       </li>
                     </ul>
                   </div>
-                  {/* <div className="p-6 border-2 border-white rounded-lg mx-auto my-3 max-w-xl">
-                    <p>
-                      Future plan
-                      <br />
-                      You can create and use the magic to defeat the enemy
-                      (⁎˃ᴗ˂⁎)
-                    </p>
-                  </div> */}
                 </>
               );
 

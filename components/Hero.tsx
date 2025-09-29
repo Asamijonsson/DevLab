@@ -1,34 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
-  const imageRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (imageRef.current) {
-      ScrollTrigger.create({
-        trigger: imageRef.current,
-        start: "top top",
-        end: "bottom top",
-        pin: true,
-        pinSpacing: true,
-      });
-    }
-
-    // Cleanup on unmount
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
-
   return (
-    <div ref={imageRef} className="w-full overflow-x-hidden">
+    <div className="w-full overflow-x-hidden">
       <Image
         src="/hero2.jpg"
         alt="hero"

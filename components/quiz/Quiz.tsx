@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
 import { useState } from "react";
-import {quiz} from "@/data/quiz";
+import { quiz } from "@/data/quiz";
 
 export default function Quiz() {
   const [current, setCurrent] = useState(0);
@@ -14,7 +14,7 @@ export default function Quiz() {
       setScore(score + 1);
     }
 
-    setSelectedOption(null); 
+    setSelectedOption(null);
 
     if (current + 1 < quiz.length) {
       setCurrent(current + 1);
@@ -23,7 +23,7 @@ export default function Quiz() {
     }
   };
 
-    const handleRestart = () => {
+  const handleRestart = () => {
     setCurrent(0);
     setSelectedOption(null);
     setScore(0);
@@ -31,15 +31,19 @@ export default function Quiz() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black-100 p-4">
-      <div className="bg-white p-6 rounded shadow-md w-full max-w-lg">
+    <div className="min-h-[85vh] flex items-center justify-center">
+      <div className="bg-[#e3e3e3] p-6 rounded shadow-md w-full max-w-lg">
         {showScore ? (
           <div className="text-center">
-            <h1 className="text-2xl text-black font-bold mb-4">Quiz Completed!</h1>
-            <p className="text-lg text-black">Your score: {score} / {quiz.length}</p>
+            <h1 className="text-2xl text-black font-bold mb-4">
+              Quiz Completed!
+            </h1>
+            <p className="text-lg text-black">
+              Your score: {score} / {quiz.length}
+            </p>
             <button
               onClick={handleRestart}
-              className="mt-4 bg-[#ef7c8e] text-white py-2 px-4 rounded"
+              className="mt-4 bg-[#febebe] text-white py-2 px-4 rounded"
             >
               Restart Quiz
             </button>
@@ -56,7 +60,9 @@ export default function Quiz() {
                   key={option}
                   onClick={() => setSelectedOption(option)}
                   className={`py-2 text-black px-4 rounded border ${
-                    selectedOption === option ? "bg-[#ef7c8e] text-white" : "bg-white"
+                    selectedOption === option
+                      ? "bg-[#febebe] text-white"
+                      : "bg-white"
                   }`}
                 >
                   {option}
@@ -66,7 +72,7 @@ export default function Quiz() {
             <button
               onClick={handleNext}
               disabled={!selectedOption}
-              className="bg-[#57e4cb] text-white py-2 px-4 rounded disabled:opacity-50"
+              className="bg-[#febebe] text-white py-2 px-4 rounded disabled:opacity-50"
             >
               Next
             </button>

@@ -7,16 +7,15 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 interface MyOrbitControls extends OrbitControls {
   autoRotate: boolean;
-} 
+}
 
 export default function ThreeModel() {
   const mountRef = useRef<HTMLDivElement | null>(null);
- 
 
   useEffect(() => {
     if (!mountRef.current) return;
 
-    const mount = mountRef.current; 
+    const mount = mountRef.current;
 
     // Scene
     const scene = new THREE.Scene();
@@ -43,17 +42,20 @@ export default function ThreeModel() {
     directional.position.set(5, 10, 7.5);
     scene.add(directional);
 
-const controls = new OrbitControls(camera, renderer.domElement) as MyOrbitControls;
-controls.autoRotate = false;
-controls.enableDamping = true;
-controls.enableZoom = true;
+    const controls = new OrbitControls(
+      camera,
+      renderer.domElement
+    ) as MyOrbitControls;
+    controls.autoRotate = false;
+    controls.enableDamping = true;
+    controls.enableZoom = false;
 
     const loader = new GLTFLoader();
     loader.load(
-      "/hobbies/deskandchair.glb", 
+      "/hobbies/deskandchair.glb",
       (gltf) => {
-            scene.add(gltf.scene);
-        gltf.scene.scale.set(1, 1, 1); 
+        scene.add(gltf.scene);
+        gltf.scene.scale.set(1, 1, 1);
       },
       undefined,
       (error) => {
@@ -70,7 +72,7 @@ controls.enableZoom = true;
 
     const animate = () => {
       requestAnimationFrame(animate);
-      controls.update(); 
+      controls.update();
       renderer.render(scene, camera);
     };
     animate();
