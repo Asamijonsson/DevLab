@@ -20,10 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="flex flex-col min-h-screen">
         <Header />
         {children}
-        <footer className="text-center text-sm text-white py-4">
+        <footer className="text-center text-sm text-white pb-4">
           Asami Kanomata Jönsson ©2025
         </footer>
       </body>

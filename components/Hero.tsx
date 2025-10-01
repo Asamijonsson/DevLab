@@ -12,7 +12,7 @@ export default function Hero() {
         height={380}
         className=" h-[60vh] sm:h-[70vh] md:h-[73vh] lg:h-[88vh] object-cover"
       />
-      <p className="flex justify-center text-center pb-20">
+      <p className="flex justify-center text-center pb-10">
         Hi, welcome to my website! This website is my hobby project lab
         (●&apos;◡&apos;●)
       </p>
