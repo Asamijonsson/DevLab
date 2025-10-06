@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaHome } from "react-icons/fa";
 
-export default function Navbar () {
+export default function Navbar() {
   return (
     <nav>
       <ul className="flex space-x-6 text-white">
@@ -15,9 +15,14 @@ export default function Navbar () {
             Hobbies
           </Link>
         </li>
-         <li>
+        <li>
           <Link href="/quiz" className="hover:underline">
             Quiz
+          </Link>
+        </li>
+        <li>
+          <Link href="/movies" className="hover:underline">
+            Movies
           </Link>
         </li>
         <li>
@@ -28,6 +33,4 @@ export default function Navbar () {
       </ul>
     </nav>
   );
-};
-
-
+}

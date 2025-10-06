@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex flex-col min-h-screen">
         <Header />
-        {children}
+        <main className="flex-grow pt-16">{children}</main>
         <footer className="text-center text-sm text-white pb-4">
           Asami Kanomata Jönsson ©2025
         </footer>

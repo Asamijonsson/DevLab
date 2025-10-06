@@ -42,7 +42,9 @@ export default function AllMovies() {
             alt={movie.title}
             className="w-full h-auto"
           />
-          <p className="p-2 text-center font-medium">{movie.title}</p>
+          <p className="p-2 text-black text-center font-medium ">
+            {movie.title}
+          </p>
         </div>
       ))}
     </div>

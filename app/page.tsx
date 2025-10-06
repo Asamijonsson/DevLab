@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 
 export default function page() {
   return (
-    <main className="flex-grow w-full">
+    <main className="w-full">
       <Hero />
     </main>
   );
