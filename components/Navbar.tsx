@@ -16,8 +16,8 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link href="/quiz" className="hover:underline">
-            Quiz
+          <Link href="/englishapp" className="hover:underline">
+            English App
           </Link>
         </li>
         <li>
