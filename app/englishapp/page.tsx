@@ -5,6 +5,7 @@ export default function Engapp() {
         I built an English practice app using Google AI Studio.
         <iframe
           src="https://english-lesson-app-rose.vercel.app/"
+          allow="microphone"
           width="100%"
           height="800"
           style={{ border: "none" }}
